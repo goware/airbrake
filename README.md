@@ -1,0 +1,2 @@
+# airbrake
+Go Airbrake client
