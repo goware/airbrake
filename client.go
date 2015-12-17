@@ -49,7 +49,6 @@ func (c *Client) Close() {
 }
 
 func (c *Client) send(e *Event) {
-	log.Println("\n\nSending stuff - to queue")
 	// Overflowing Queue - if channel buffer is full drop event
 	select {
 	case c.queue <- e:
@@ -65,9 +64,7 @@ func (c *Client) blockingSend(e *Event) error {
 func (c *Client) worker() {
 	defer c.wg.Done()
 	for e := range c.queue {
-		log.Println("\n\nSending stuff -from queue")
 		if err := c.transport.Send(e, c.timeout); err != nil {
-			log.Println("\n\nSending stuff - err", err)
 			// if sending fails return to queue for retry (needs max retries)
 			// c.send(e)
 		}

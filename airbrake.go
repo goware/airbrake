@@ -34,9 +34,9 @@ const airbrakeEndpoint = "https://airbrake.io/api/v3/projects/%s/notices?key=%s"
 
 var (
 	not = notifier{
-		"Pressly Airbrake",
+		"Goware Airbrake",
 		"0.0.1",
-		"https://github.com/pressly/airbrake",
+		"https://github.com/goware/airbrake",
 	}
 )
 
